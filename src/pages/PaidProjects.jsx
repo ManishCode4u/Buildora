@@ -50,37 +50,21 @@ const PaidProjects = ({ page = false }) => {
         page ? "bg-blue-600 pt-32 pb-20" : "bg-white py-20"
       } px-6`}
     >
-      {/* ⬅️ TOP LEFT ARROW (HEADER KE NICHE) */}
       {page && (
         <button
           onClick={() => navigate(-1)}
           className="
-            fixed 
-            top-24 
-            left-6 
-            bg-white 
-            text-blue-600 
-            w-14 
-            h-14 
-            rounded-full 
-            flex 
-            items-center 
-            justify-center 
-            text-2xl 
-            font-extrabold
-            shadow-2xl 
-            hover:bg-blue-100 
-            hover:scale-110 
-            transition-all 
-            duration-300 
-            z-50
+            fixed top-24 left-6 bg-white text-blue-600 w-14 h-14
+            rounded-full flex items-center justify-center text-2xl
+            font-extrabold shadow-2xl hover:bg-blue-100
+            hover:scale-110 transition-all duration-300 z-50
           "
         >
           ←
         </button>
       )}
 
-      {/* 🔵 TOP PILL */}
+      {/* TOP PILL */}
       <div className="flex justify-center mb-6">
         <div className="flex items-center gap-2 bg-blue-100 text-blue-600 px-5 py-2 rounded-full text-sm font-medium shadow">
           <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
@@ -90,10 +74,19 @@ const PaidProjects = ({ page = false }) => {
 
       {/* Heading */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-        <h2 className={`text-4xl font-bold ${page ? "text-white" : "text-gray-900"}`}>
-          Buy Ready-Made <span className="text-blue-300">Projects</span>
+        <h2
+          className={`text-4xl font-bold ${
+            page ? "text-white" : "text-gray-900"
+          }`}
+        >
+          Buy Ready-Made{" "}
+          <span className="text-blue-600">Projects</span>
         </h2>
-        <p className={`mt-3 text-sm ${page ? "text-blue-100" : "text-gray-500"}`}>
+        <p
+          className={`mt-3 text-sm ${
+            page ? "text-blue-100" : "text-gray-500"
+          }`}
+        >
           One-time payment • Lifetime access • Source code + PDF guidance
         </p>
       </div>
@@ -112,8 +105,8 @@ const PaidProjects = ({ page = false }) => {
               onMouseEnter={() => setActiveIndex(index)}
               className={`rounded-xl p-6 border transition-all duration-300 cursor-pointer ${
                 isActive
-                  ? "bg-white text-blue-600 border-white shadow-2xl scale-105"
-                  : "bg-blue-50 text-gray-900 border-gray-200 shadow-sm"
+                  ? "bg-blue-600 text-white border-blue-600 shadow-2xl scale-105"
+                  : "bg-white text-gray-900 border-gray-200 shadow-sm hover:bg-blue-50 hover:border-blue-500"
               }`}
             >
               <h3 className="text-xl font-semibold">{project.title}</h3>
@@ -127,7 +120,11 @@ const PaidProjects = ({ page = false }) => {
 
               <button
                 onClick={() => alert("Coming Soon")}
-                className="mt-6 w-full py-2 rounded-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 transition"
+                className={`mt-6 w-full py-2 rounded-lg font-semibold transition ${
+                  isActive
+                    ? "bg-white text-blue-600 hover:bg-blue-100"
+                    : "bg-blue-600 text-white hover:bg-blue-700"
+                }`}
               >
                 Buy Project
               </button>
@@ -136,7 +133,6 @@ const PaidProjects = ({ page = false }) => {
         })}
       </div>
 
-      {/* More Projects → ONLY HOME */}
       {!page && (
         <div className="flex justify-center mt-16">
           <Link
