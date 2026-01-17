@@ -3,11 +3,15 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
+import BottomNav from "./components/BottomNav";
+
 
 import Home from "./pages/Home";
+import AboutBuildora from './pages/AboutBuildora';
 import Services from "./pages/Services";
 import HowItWorks from "./pages/HowItWorks";
 import PaidProjects from "./pages/PaidProjects";
+import PortfolioPage from "./pages/PortfolioPage";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
@@ -16,6 +20,8 @@ import BlogDetails from "./pages/BlogDetails";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
+import Clients from "./pages/Clients";
+
 
 function App() {
   const [navVariant, setNavVariant] = useState("blue");
@@ -47,9 +53,11 @@ function App() {
           element={
             <>
               <Home />
+              <AboutBuildora />
               <Services />
               <HowItWorks />
               <PaidProjects />
+               <PortfolioPage/>
               <FAQ />
               <Contact />
             </>
@@ -57,6 +65,9 @@ function App() {
         />
 
         <Route path="/paid-projects" element={<PaidProjects page />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/portfoliopage" element={<PortfolioPage />} />
 
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
@@ -66,6 +77,8 @@ function App() {
       </Routes>
 
       <Footer />
+      <BottomNav />
+
     </>
   );
 }
